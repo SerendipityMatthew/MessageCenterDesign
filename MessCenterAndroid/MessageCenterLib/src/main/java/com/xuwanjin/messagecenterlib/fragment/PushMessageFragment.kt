@@ -1,4 +1,4 @@
-package com.xuwanjin.messagecenterlib
+package com.xuwanjin.messagecenterlib.fragment
 
 import android.os.Bundle
 import com.xuwanjin.messagecenterlib.fragment.BaseFragment

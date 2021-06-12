@@ -9,6 +9,8 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.xuwanjin.messagecenterlib.fragment.BaseFragmentPageAdapter
 import com.xuwanjin.messagecenterlib.fragment.DeviceMessageFragment
+import com.xuwanjin.messagecenterlib.fragment.PushMessageFragment
+import com.xuwanjin.messagecenterlib.fragment.SharingFragment
 
 class MessageCenterActivity : AppCompatActivity() {
     private lateinit var mMessageTabLayout: TabLayout
@@ -16,6 +18,7 @@ class MessageCenterActivity : AppCompatActivity() {
     protected var titleList= mutableListOf<String>().apply {
         add("设备通知")
         add("推送消息")
+        add("分享")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +29,7 @@ class MessageCenterActivity : AppCompatActivity() {
         val fragmentList = mutableListOf<Fragment>().apply {
             add(DeviceMessageFragment())
             add(PushMessageFragment())
+            add(SharingFragment())
         }
         Log.d("Matthew", "onCreate: fragmentList.size = ${fragmentList.size}")
 
