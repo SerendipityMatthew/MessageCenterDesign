@@ -15,7 +15,13 @@ import com.xuwanjin.messagecenterlib.fragment.SharingFragment
 class MessageCenterActivity : AppCompatActivity() {
     private lateinit var mMessageTabLayout: TabLayout
     private lateinit var vpMessageContent: ViewPager2
-    protected var titleList= mutableListOf<String>().apply {
+    private lateinit var mFragmentList: MutableList<Fragment>
+
+    companion object {
+        const val MAX_FIX_TAB_ITEM = 4
+    }
+
+    protected var titleList = mutableListOf<String>().apply {
         add("设备通知")
         add("推送消息")
         add("分享")
@@ -26,16 +32,24 @@ class MessageCenterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_message_center)
         mMessageTabLayout = findViewById(R.id.message_tab_layout_container)
         vpMessageContent = findViewById(R.id.vp_message_content)
-        val fragmentList = mutableListOf<Fragment>().apply {
+        initFragmentList()
+        vpMessageContent.isUserInputEnabled = true
+        vpMessageContent.adapter =
+            BaseFragmentPageAdapter(supportFragmentManager, lifecycle, mFragmentList)
+        attachTabLayoutAndViewPager2()
+    }
+
+    private fun initFragmentList() {
+        mFragmentList = mutableListOf<Fragment>().apply {
             add(DeviceMessageFragment())
             add(PushMessageFragment())
             add(SharingFragment())
         }
-        Log.d("Matthew", "onCreate: fragmentList.size = ${fragmentList.size}")
+        Log.d("Matthew", "onCreate: fragmentList.size = ${mFragmentList.size}")
 
-        vpMessageContent.adapter =
-            BaseFragmentPageAdapter(supportFragmentManager, lifecycle, fragmentList)
-        attachTabLayoutAndViewPager2()
+        if (mFragmentList.size > MAX_FIX_TAB_ITEM) {
+            mMessageTabLayout.tabMode = TabLayout.MODE_SCROLLABLE
+        }
     }
 
 

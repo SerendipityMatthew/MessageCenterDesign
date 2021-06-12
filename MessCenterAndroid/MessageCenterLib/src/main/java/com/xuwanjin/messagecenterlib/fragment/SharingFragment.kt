@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import com.xuwanjin.messagecenterlib.R
 
 class SharingFragment:BaseFragment() {
     override fun onCreateView(
@@ -17,6 +19,11 @@ class SharingFragment:BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mFragmentBaseMessageBinding.fragmentText.text = "Sharing Message"
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fragmentView.findViewById<TextView>(R.id.fragment_text).text = "Sharing Message"
+
     }
 }
