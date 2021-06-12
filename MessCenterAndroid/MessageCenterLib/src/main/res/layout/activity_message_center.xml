@@ -23,13 +23,11 @@
         app:tabMode="fixed">
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/device_message_tabitem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="设备信息" />
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/push_message_tabitem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="推送信息" />

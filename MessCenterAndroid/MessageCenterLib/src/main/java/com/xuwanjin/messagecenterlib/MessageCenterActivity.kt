@@ -3,10 +3,12 @@ package com.xuwanjin.messagecenterlib
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.xuwanjin.messagecenterlib.databinding.ActivityMessageCenterBinding
 import com.xuwanjin.messagecenterlib.fragment.BaseFragmentPageAdapter
 import com.xuwanjin.messagecenterlib.fragment.DeviceMessageFragment
 import com.xuwanjin.messagecenterlib.fragment.PushMessageFragment
@@ -16,6 +18,7 @@ class MessageCenterActivity : AppCompatActivity() {
     private lateinit var mMessageTabLayout: TabLayout
     private lateinit var vpMessageContent: ViewPager2
     private lateinit var mFragmentList: MutableList<Fragment>
+    private lateinit var activityMessageCenterBinding: ActivityMessageCenterBinding
 
     companion object {
         const val MAX_FIX_TAB_ITEM = 4
@@ -29,9 +32,11 @@ class MessageCenterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_message_center)
-        mMessageTabLayout = findViewById(R.id.message_tab_layout_container)
-        vpMessageContent = findViewById(R.id.vp_message_content)
+//        setContentView(R.layout.activity_message_center)
+        activityMessageCenterBinding = ActivityMessageCenterBinding.inflate(layoutInflater)
+        setContentView(activityMessageCenterBinding.root)
+        mMessageTabLayout = activityMessageCenterBinding.messageTabLayoutContainer
+        vpMessageContent = activityMessageCenterBinding.vpMessageContent
         initFragmentList()
         vpMessageContent.isUserInputEnabled = true
         vpMessageContent.adapter =

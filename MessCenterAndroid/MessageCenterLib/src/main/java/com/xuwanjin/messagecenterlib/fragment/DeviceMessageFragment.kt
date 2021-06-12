@@ -22,7 +22,7 @@ class DeviceMessageFragment: BaseFragment() {
 
     override fun onResume() {
         super.onResume()
-        fragmentView.findViewById<TextView>(R.id.fragment_text).text = "Device Message"
+        fragmentBaseMessageBinding.fragmentText.text = "Device Message"
 
     }
 }

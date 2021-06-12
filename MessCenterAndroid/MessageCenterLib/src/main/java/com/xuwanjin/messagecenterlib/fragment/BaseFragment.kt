@@ -6,15 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.xuwanjin.messagecenterlib.R
+import com.xuwanjin.messagecenterlib.databinding.FragmentBaseMessageBinding
 
 open class BaseFragment : Fragment() {
-    protected lateinit var fragmentView: View
+    protected lateinit var fragmentBaseMessageBinding:FragmentBaseMessageBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        fragmentView = inflater.inflate(R.layout.fragment_base_message, container, false)
-        return fragmentView
+        fragmentBaseMessageBinding = FragmentBaseMessageBinding.inflate(layoutInflater)
+
+        return fragmentBaseMessageBinding.root
     }
 }

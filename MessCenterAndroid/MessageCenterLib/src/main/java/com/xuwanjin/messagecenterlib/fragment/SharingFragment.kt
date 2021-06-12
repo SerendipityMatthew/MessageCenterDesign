@@ -23,7 +23,7 @@ class SharingFragment:BaseFragment() {
 
     override fun onResume() {
         super.onResume()
-        fragmentView.findViewById<TextView>(R.id.fragment_text).text = "Sharing Message"
+        fragmentBaseMessageBinding.fragmentText.text = "Sharing Message"
 
     }
 }
