@@ -1,4 +1,4 @@
-package com.xuwanjin.messagecenterlib
+package com.xuwanjin.messagecenterlib.fragment
 
 import android.util.Log
 import androidx.fragment.app.Fragment

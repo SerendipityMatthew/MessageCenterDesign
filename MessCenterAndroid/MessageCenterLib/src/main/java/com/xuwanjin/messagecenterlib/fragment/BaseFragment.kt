@@ -1,12 +1,11 @@
-package com.xuwanjin.messagecenterlib
+package com.xuwanjin.messagecenterlib.fragment
 
-import android.database.DatabaseUtils
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import com.xuwanjin.messagecenterlib.R
 import com.xuwanjin.messagecenterlib.databinding.FragmentBaseMessageBinding
 
 open class BaseFragment : Fragment() {
