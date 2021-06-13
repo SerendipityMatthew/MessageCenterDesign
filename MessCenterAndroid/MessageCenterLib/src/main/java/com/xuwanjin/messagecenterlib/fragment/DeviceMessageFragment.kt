@@ -22,7 +22,6 @@ class DeviceMessageFragment: BaseFragment() {
 
     override fun onResume() {
         super.onResume()
-        fragmentBaseMessageBinding.fragmentText.text = "Device Message"
 
     }
 }

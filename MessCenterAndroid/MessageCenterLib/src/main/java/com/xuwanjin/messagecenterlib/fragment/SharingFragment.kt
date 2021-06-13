@@ -23,7 +23,6 @@ class SharingFragment:BaseFragment() {
 
     override fun onResume() {
         super.onResume()
-        fragmentBaseMessageBinding.fragmentText.text = "Sharing Message"
 
     }
 }

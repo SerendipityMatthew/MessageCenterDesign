@@ -1,6 +1,5 @@
 package com.xuwanjin.messagecenterlib.fragment
 
-import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
@@ -13,7 +12,6 @@ class BaseFragmentPageAdapter(
     private val mFragmentList: MutableList<Fragment>
 ) : FragmentStateAdapter(fragmentManager, lifecycle) {
     override fun getItemCount(): Int {
-        Log.d("Matthew", "getItemCount: ")
         return mFragmentList.size
     }
 

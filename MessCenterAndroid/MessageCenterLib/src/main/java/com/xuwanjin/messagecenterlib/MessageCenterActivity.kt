@@ -32,15 +32,14 @@ class MessageCenterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_message_center)
         activityMessageCenterBinding = ActivityMessageCenterBinding.inflate(layoutInflater)
         setContentView(activityMessageCenterBinding.root)
         mMessageTabLayout = activityMessageCenterBinding.messageTabLayoutContainer
         vpMessageContent = activityMessageCenterBinding.vpMessageContent
         initFragmentList()
         vpMessageContent.isUserInputEnabled = true
-        vpMessageContent.adapter =
-            BaseFragmentPageAdapter(supportFragmentManager, lifecycle, mFragmentList)
+        vpMessageContent.adapter = BaseFragmentPageAdapter(supportFragmentManager, lifecycle, mFragmentList)
+
         attachTabLayoutAndViewPager2()
     }
 

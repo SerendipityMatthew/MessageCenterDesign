@@ -12,6 +12,5 @@ class PushMessageFragment: BaseFragment() {
 
     override fun onResume() {
         super.onResume()
-        fragmentBaseMessageBinding.fragmentText.text= "Push Message"
     }
 }
