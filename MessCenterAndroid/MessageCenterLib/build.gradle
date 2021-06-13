@@ -61,9 +61,9 @@ dependencies {
     implementation "com.google.code.gson:gson:$gson_version"
     def paging_version = "3.0.0"
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
-    def glide_version = "4.8.0"
+    def glide_version = "4.12.0"
     implementation "com.github.bumptech.glide:glide:$glide_version"
-    implementation "com.github.bumptech.glide:compiler:$glide_version"
-    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
-
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+    def swipe_refresh_version = "1.1.0"
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:$swipe_refresh_version")
 }
