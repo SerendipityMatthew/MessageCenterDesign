@@ -1,5 +1,6 @@
 package com.xuwanjin.messagecenterlib.ui.adapter
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import com.xuwanjin.messagecenterlib.entity.BaseMessage
 import com.xuwanjin.messagecenterlib.ui.MessageViewHolder
 
 class MessageAdapter(
+    private val mContext:Context,
     private val mMessageList:MutableList<BaseMessage>
 ) : PagingDataAdapter<BaseMessage, MessageViewHolder>(message_comparator) {
     companion object {
@@ -35,6 +37,6 @@ class MessageAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessageViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.message_item, parent, false)
-        return MessageViewHolder(view)
+        return MessageViewHolder(mContext,view)
     }
 }
