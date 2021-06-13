@@ -36,11 +36,18 @@ open class BaseFragment : Fragment() {
 
     private fun initMessageList(): MutableList<BaseMessage> {
         return mutableListOf<BaseMessage>().apply {
-            add(BaseMessage("",  "MatthewA", "MatthewA Content", "Sun Jun 13 11:57:03 CST 2021"))
+            add(BaseMessage("", "MatthewA", "MatthewA Content", "Sun Jun 13 11:57:03 CST 2021"))
             add(BaseMessage("", "MatthewB", "MatthewB Content", "Sun Jun 13 11:57:03 CST 2021"))
             add(BaseMessage("", "MatthewC", "MatthewC Content", "Sun Jun 13 11:57:03 CST 2021"))
             add(BaseMessage("", "MatthewD", "MatthewD Content", "Sun Jun 13 11:57:03 CST 2021"))
             add(BaseMessage("", "MatthewE", "MatthewE Content", "Sun Jun 13 11:57:03 CST 2021"))
+            add(BaseMessage("", "MatthewF", "MatthewE Content", "Sun Jun 13 11:57:03 CST 2021"))
+            add(BaseMessage("", "MatthewG", "MatthewE Content", "Sun Jun 13 11:57:03 CST 2021"))
+            add(BaseMessage("", "MatthewH", "MatthewE Content", "Sun Jun 13 11:57:03 CST 2021"))
+            add(BaseMessage("", "MatthewI", "MatthewE Content", "Sun Jun 13 11:57:03 CST 2021"))
+            add(BaseMessage("", "MatthewJ", "MatthewE Content", "Sun Jun 13 11:57:03 CST 2021"))
+            add(BaseMessage("", "MatthewK", "MatthewE Content", "Sun Jun 13 11:57:03 CST 2021"))
+            add(BaseMessage("", "MatthewL", "MatthewE Content", "Sun Jun 13 11:57:03 CST 2021"))
         }
     }
 }
