@@ -19,7 +19,6 @@
             android:id="@+id/message_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="500dp"
-            android:background="#FF00FF"
             android:scrollbars="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/message_item"
