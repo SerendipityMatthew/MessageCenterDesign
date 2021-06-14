@@ -2,9 +2,12 @@ package com.xuwanjin.messagecenterlib
 
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.AbstractSavedStateViewModelFactory
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -13,12 +16,28 @@ import com.xuwanjin.messagecenterlib.fragment.BaseFragmentPageAdapter
 import com.xuwanjin.messagecenterlib.fragment.DeviceMessageFragment
 import com.xuwanjin.messagecenterlib.fragment.PushMessageFragment
 import com.xuwanjin.messagecenterlib.fragment.SharingFragment
+import com.xuwanjin.messagecenterlib.viewmodel.MessageCenterViewModel
 
 class MessageCenterActivity : AppCompatActivity() {
     private lateinit var mMessageTabLayout: TabLayout
     private lateinit var vpMessageContent: ViewPager2
     private lateinit var mFragmentList: MutableList<Fragment>
     private lateinit var activityMessageCenterBinding: ActivityMessageCenterBinding
+    private val model: MessageCenterViewModel by viewModels {
+        object : AbstractSavedStateViewModelFactory(this, null) {
+            override fun <T : ViewModel?> create(
+                key: String,
+                modelClass: Class<T>,
+                handle: SavedStateHandle
+            ): T {
+                val messageRepo =
+                    ServiceLocator.instance(this@MessageCenterActivity).getRepository()
+                return MessageCenterViewModel(messageRepo, handle) as T
+            }
+
+        }
+
+    }
 
     companion object {
         const val MAX_FIX_TAB_ITEM = 4
@@ -38,7 +57,8 @@ class MessageCenterActivity : AppCompatActivity() {
         vpMessageContent = activityMessageCenterBinding.vpMessageContent
         initFragmentList()
         vpMessageContent.isUserInputEnabled = true
-        vpMessageContent.adapter = BaseFragmentPageAdapter(supportFragmentManager, lifecycle, mFragmentList)
+        vpMessageContent.adapter =
+            BaseFragmentPageAdapter(supportFragmentManager, lifecycle, mFragmentList)
 
         attachTabLayoutAndViewPager2()
     }
