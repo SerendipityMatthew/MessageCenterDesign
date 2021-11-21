@@ -1,3 +1,4 @@
 rootProject.name = "MessageCenter"
 include ':app'
 include ':MessageCenterLib'
+include ':MessageCenterPadLib'
